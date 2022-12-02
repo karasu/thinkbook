@@ -5,6 +5,7 @@ loadkeys es
 # Vars
 
 USERNAME="karasu"
+CONF_DIR="/home/${USERNAME}/.config"
 
 INSTALL_DEV="/dev/nvme0n1"
 BOOT_PART="/dev/nvme0n1p1"
@@ -124,19 +125,23 @@ ${PACMAN} base-devel gdb ninja gcc cmake libxcb xcb-proto xcb-util \
     xorg-xwayland cmake wlroots mesa git meson polkit lxqt-policykit wofi \
     waybar jq wayland-utils wdisplays
 
-# Install from Aur
+# Install hyprland from Aur
 git clone https://aur.archlinux.org/hyprland-bin.git
 cd hyprland-bin
 makepkg -s
 ${INSTALL_ZST} *.zst
 cd ..
 
-# Hyprpaper
+# Install Hyprpaper
 git clone https://github.com/hyprwm/hyprpaper  
 cd hyprpaper  
 make all  
 sudo cp build/hyprpaper /usr/local/bin 
 cd ..
+
+# Copy hyprland conf
+mkdir -p ${CONF_DIR}/hypr
+cp -v hypr/* ${CONF_DIR}/hypr
 
 # Misc stuff (personal choices)
 ${PACMAN} kitty zathura neofetch openssh p7zip pavucontrol
