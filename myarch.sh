@@ -54,7 +54,7 @@ ${PACMAN} grub nano sudo dhcpcd greetd iwd os-prober ntfs-3g git wget
 
 # zsh
 ${PACMAN} zsh zsh-completions powerline zsh-autosuggestions \
-    zsh-syntax-highlighting zsh-powerlevel10k
+    zsh-syntax-highlighting zsh-powerlevel10k lsd
 
 # Generate locales
 sed 's/#en_US.UTF8 UTF-8/en_US.UTF8 UTF-8/g' /etc/locale.gen
