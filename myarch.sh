@@ -176,7 +176,7 @@ ${PACMAN} adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fonts \
     gnu-free-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
     siji-ttf ttf-dejavu ttf-font-awesome ttf-font-icons ttf-ionicons \
     ttf-liberation ttf-ms-win10-auto ttf-opensans ttf-sourcecodepro-nerd \
-    ttf-unicons powerline-fonts ttc-iosevka
+    ttf-unicons ttf-hack powerline-fonts ttc-iosevka
 
 # Gimp (devel)
 #gimp-devel
@@ -198,7 +198,10 @@ ${PACMAN} gst-plugin-pipewire gst-plugins-base gst-plugins-bad gst-plugins-good 
     gst-plugins-ugly
 
 # Thunar
-${PACMAN} thunar thunar-archive-plugin thunar-volman tumbler
+#${PACMAN} thunar thunar-archive-plugin thunar-volman tumbler
+
+# QT apps
+${PACMAN} gwenview okular dolphin
 
 # Lutris
 #${PACMAN} lutris MangoHud MangoHud-32bit wine winetricks wine-32bit mesa-dri-32bit \
