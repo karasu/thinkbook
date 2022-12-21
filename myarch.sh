@@ -19,6 +19,9 @@ EAP_PASSWORD="r2tjo0m3ka"
 PACMAN="pacman -S --needed --noconf"
 INSTALL_ZST="pacman -U --needed --noconf"
 
+PROGRAMARI_USERNAME="compartit"
+PROGRAMARI_PASSWORD=""
+
 # Prepare disk
 
 ${PARTED} ${INSTALL_DEV} -- mklabel gpt \
@@ -208,3 +211,11 @@ ${PACMAN} gwenview okular dolphin
 #    libGL-32bit amdvlk amdvlk-32bit vkd3d vkd3d-devel vkd3d-32bit vulkan-loader \
 #    vulkan-loader-32bit libX11-devel libX11-devel-32bit libgpg-error libgpg-error-32bit \
 #    gdk-pixbuf gdk-pixbuf-32bit libgcc libgcc-32bit libglvnd libglvnd-32bit 
+
+# Autofs
+${PACMAN} autofs
+systemctl enable autofs
+cp autofs/auto.master.d/programari.autofs /etc/autofs/auto.master.d
+echo "programari -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/programari" > /etc/autofs/auto.programari
+echo  "operatius -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/operatius" >> /etc/autofs/auto.programari
+
