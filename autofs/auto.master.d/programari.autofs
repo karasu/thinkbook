@@ -1,0 +1,2 @@
+/programari /etc/autofs/auto.programari --timeout 60 --browse
+
