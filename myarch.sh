@@ -238,20 +238,19 @@ set_vars
 
 # prepare_disk
 
-base_system
-
-locales
-bootloader
-users
-enable_services
-wifi
-yay
-session
-hyprland
-audio
-fonts
-apps
-wine
-autofs
-scripts
+#base_system
+#locales
+#bootloader
+#users
+#enable_services
+#wifi
+#yay
+#session
+#hyprland
+#audio
+#fonts
+#apps
+#wine
+#autofs
+#scripts
 
