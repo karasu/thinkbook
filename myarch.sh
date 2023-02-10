@@ -217,7 +217,7 @@ apps() {
 }
 
 wine() {
-${PACMAN} wine-staging winetricks
+  ${PACMAN} wine-staging winetricks
 }
 
 autofs() {
@@ -234,23 +234,24 @@ scripts() {
 
 # ####################################################################################
 
-set_vars()
+set_vars
 
-#prepare_disk()
+# prepare_disk
 
-base_system()
-locales()
-bootloader()
-users()
-enable_services()
-wifi()
-yay()
-session()
-hyprland()
-audio()
-fonts()
-apps()
-wine()
-autofs()
-scripts()
+base_system
+
+locales
+bootloader
+users
+enable_services
+wifi
+yay
+session
+hyprland
+audio
+fonts
+apps
+wine
+autofs
+scripts
 
