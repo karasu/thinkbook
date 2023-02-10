@@ -52,7 +52,8 @@ prepare_disk() {
 
 base_system() {
   # Install base systemm
-  pacstrap /mnt base base-devel linux linux-firmware btrfs-progs intel-ucode intel-media-driver
+  pacstrap /mnt base base-devel linux linux-firmware btrfs-progs intel-ucode \
+    intel-media-driver
 
   # Setup /etc/fstab
   genfstab -U /mnt >> /mnt/etc/fstab
@@ -62,8 +63,11 @@ base_system() {
 
   # Install firmwares
   ${PACMAN} linux-firmware-bnx2x linux-firmware-liquidio linux-firmware-mellanox \
-    linux-firmware-nfp linux-firmware-qlogic linux-firmware-whence aic94xx-firmware \
-    mkinitcpio-firmware sof-firmware wd719x-firmware                   
+    linux-firmware-nfp linux-firmware-qlogic linux-firmware-whence sof-firmware
+
+  aur aic9xx-firmware
+  aur mkinitcpio-firmware
+  aur wd719x-firmware
 
   # Install some base tools
   ${PACMAN} grub nano sudo dhcpcd greetd iwd os-prober ntfs-3g git wget curl
