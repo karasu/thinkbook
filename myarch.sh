@@ -4,7 +4,7 @@ aur() {
   echo "Installing $1 from AUR..."
   git clone https://aur.archlinux.org/$1.git
   cd $1
-  makepkg -s
+  su build makepkg -s
   ${INSTALL_ZST} *.zst
   cd ..
 }
@@ -50,6 +50,14 @@ prepare_disk() {
   mount ${BOOT_PART} /mnt/boot
 }
 
+build_user() {
+  ${PACMAN} sudo
+  mkdir -p /etc/sudoers.d
+  useradd --no-create-home --shell=/bin/false build && usermod -L build
+  echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/01_build
+  #echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+}
+
 base_system() {
   # Install base systemm
   pacstrap /mnt base base-devel linux linux-firmware btrfs-progs intel-ucode \
@@ -58,14 +66,18 @@ base_system() {
   # Setup /etc/fstab
   genfstab -U /mnt >> /mnt/etc/fstab
 
+  build_user
+
   # Chroot into new installed system
   arch-chroot /mnt
+
+  build_user
 
   # Install firmwares
   ${PACMAN} linux-firmware-bnx2x linux-firmware-liquidio linux-firmware-mellanox \
     linux-firmware-nfp linux-firmware-qlogic linux-firmware-whence sof-firmware
 
-  aur aic9xx-firmware
+  aur aic94xx-firmware
   aur mkinitcpio-firmware
   aur wd719x-firmware
 
@@ -73,8 +85,8 @@ base_system() {
   ${PACMAN} grub nano sudo dhcpcd greetd iwd os-prober ntfs-3g git wget curl
 
   # zsh
-  ${PACMAN} zsh zsh-completions powerline zsh-autosuggestions \
-    zsh-syntax-highlighting zsh-powerlevel10k lsd
+  ${PACMAN} zsh zsh-completions powerline zsh-autosuggestions zsh-syntax-highlighting lsd
+  aur zsh-theme-powerlevel10k
 }
 
 locales() {
