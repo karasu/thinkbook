@@ -1,0 +1,4 @@
+#!/bin/sh
+
+dosbox -fullscreen -exit -c "keyb sp" -c "mount C ." -c "C:" "$1"
+

@@ -1,0 +1,22 @@
+#!/usr/bin/python
+
+import os
+import random
+import subprocess
+
+backgrounds = "/home/karasu/nordic-wallpapers"
+
+filename = random.choice(os.listdir(backgrounds))
+wallpaper = os.path.join(backgrounds, filename)
+
+# Unload all inactive wallpapers
+cmd = ["hyprctl", "hyprpaper", "unload", "all"]
+subprocess.run(cmd, stdout=subprocess.DEVNULL)
+
+cmd = ["hyprctl", "hyprpaper", "preload", wallpaper]
+subprocess.run(cmd, stdout=subprocess.DEVNULL)
+
+mwall = "eDP-1," + wallpaper
+cmd = ["hyprctl", "hyprpaper", "wallpaper", mwall]
+subprocess.run(cmd, stdout=subprocess.DEVNULL)
+

@@ -194,7 +194,7 @@ ${PACMAN} adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fonts \
 ${PACMAN} grim feh ffmpegthumbnailer file-roller gnome-tweaks jre-openjdk lxqt-policykit \
     mesa-utils vulkan-intel mlocate moc mpv mtools neofetch nfs-utils nitrogen \
     youtube-dl zathura-pdf-poppler zathura zsh zsh-completions zsh-autosuggestions \
-    zsh-syntax-highlighting zsh-theme-powerlevel10k imv
+    zsh-syntax-highlighting zsh-theme-powerlevel10k imv  nitch
 
 # Multimedia graph framework
 ${PACMAN} gst-plugin-pipewire gst-plugins-base gst-plugins-bad gst-plugins-good \
@@ -204,9 +204,10 @@ ${PACMAN} gst-plugin-pipewire gst-plugins-base gst-plugins-bad gst-plugins-good 
 #${PACMAN} thunar thunar-archive-plugin thunar-volman tumbler
 
 # QT apps
-${PACMAN} gwenview okular dolphin
+#${PACMAN} gwenview okular dolphin
 
-# Lutris
+# Wine
+${PACMAN} wine-staging winetricks
 #${PACMAN} lutris MangoHud MangoHud-32bit wine winetricks wine-32bit mesa-dri-32bit \
 #    libGL-32bit amdvlk amdvlk-32bit vkd3d vkd3d-devel vkd3d-32bit vulkan-loader \
 #    vulkan-loader-32bit libX11-devel libX11-devel-32bit libgpg-error libgpg-error-32bit \
@@ -217,5 +218,7 @@ ${PACMAN} autofs
 systemctl enable autofs
 cp autofs/auto.master.d/programari.autofs /etc/autofs/auto.master.d
 echo "programari -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/programari" > /etc/autofs/auto.programari
-echo  "operatius -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/operatius" >> /etc/autofs/auto.programari
+echo "operatius -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/operatius" >> /etc/autofs/auto.programari
 
+# /usr/local/bin scripts
+install -v localbin/* /usr/local/bin

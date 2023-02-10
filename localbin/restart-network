@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Restart iwd daemon
+systemctl stop iwd
+rm /var/lib/iwd/.eap-tls-session-cache
+rm /var/lib/iwd/.known_network.freq
+systemctl start iwd
+
+# Change DNS
+#resolvectl dns wlan0 192.168.0.167
+#resolvectl flush-caches
