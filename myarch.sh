@@ -4,7 +4,7 @@ aur() {
   echo "Installing $1 from AUR..."
   git clone https://aur.archlinux.org/$1.git
   cd $1
-  su build makepkg -s
+  su - build makepkg -s
   ${INSTALL_ZST} *.zst
   cd ..
 }
