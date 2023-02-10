@@ -19,6 +19,8 @@ EAP_PASSWORD="r2tjo0m3ka"
 PACMAN="pacman -S --needed --noconf"
 INSTALL_ZST="pacman -U --needed --noconf"
 
+YAY="yay -S --needed --noconf"
+
 PROGRAMARI_USERNAME="compartit"
 PROGRAMARI_PASSWORD=""
 
@@ -221,4 +223,5 @@ echo "programari -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAM
 echo "operatius -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/operatius" >> /etc/autofs/auto.programari
 
 # /usr/local/bin scripts
-install -v localbin/* /usr/local/bin
+cp -v localbin/* /usr/local/bin
+
