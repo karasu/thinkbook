@@ -1,28 +1,25 @@
-# Arch Guide
-
-loadkeys es
-
 # Vars
 
-USERNAME="karasu"
-CONF_DIR="/home/${USERNAME}/.config"
+set_config_vars() {
+  USERNAME="karasu"
+  CONF_DIR="/home/${USERNAME}/.config"
 
-INSTALL_DEV="/dev/nvme0n1"
-BOOT_PART="/dev/nvme0n1p1"
-ROOT_PART="/dev/nvme0n1p2"
+  INSTALL_DEV="/dev/nvme0n1"
+  BOOT_PART="/dev/nvme0n1p1"
+  ROOT_PART="/dev/nvme0n1p2"
 
-PARTED="parted -s -f -a optimal"
+  PARTED="parted -s -f -a optimal"
 
-EAP_IDENTITY="W08044624"
-EAP_PASSWORD="r2tjo0m3ka"
+  EAP_IDENTITY="W08044624"
+  EAP_PASSWORD=""
 
-PACMAN="pacman -S --needed --noconf"
-INSTALL_ZST="pacman -U --needed --noconf"
+  PACMAN="pacman -S --needed --noconf"
+  INSTALL_ZST="pacman -U --needed --noconf"
 
-YAY="yay -S --needed --noconf"
+  YAY="yay -S --needed --noconf"
 
-PROGRAMARI_USERNAME="compartit"
-PROGRAMARI_PASSWORD=""
+  PROGRAMARI_USERNAME="compartit"
+  PROGRAMARI_PASSWORD=""
 
 # Prepare disk
 
