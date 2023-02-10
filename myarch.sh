@@ -242,7 +242,7 @@ set_vars
 
 # prepare_disk
 
-#base_system
+base_system
 #locales
 #bootloader
 #users
