@@ -4,7 +4,7 @@ aur() {
   echo "Installing $1 from AUR..."
   git clone https://aur.archlinux.org/$1.git
   cd $1
-  su - build makepkg -s
+  sudo -u build makepkg -s
   ${INSTALL_ZST} *.zst
   cd ..
 }
@@ -65,9 +65,13 @@ base_system() {
   # Install arch-install-scripts
   ${PACMAN} arch-install-scripts
 
-  # Install base systemm
+  # Install base system
+  mkdir /mnt
   pacstrap /mnt base base-devel linux linux-firmware btrfs-progs intel-ucode \
     intel-media-driver
+
+  # Install git (for using AUR later)
+  ${PACMAN} git
 
   # Setup /etc/fstab
   genfstab -U /mnt >> /mnt/etc/fstab
@@ -88,7 +92,7 @@ base_system() {
   aur wd719x-firmware
 
   # Install some base tools
-  ${PACMAN} grub nano sudo dhcpcd greetd iwd os-prober ntfs-3g git wget curl
+  ${PACMAN} grub nano dhcpcd greetd iwd os-prober ntfs-3g wget curl
 
   # zsh
   ${PACMAN} zsh zsh-completions powerline zsh-autosuggestions zsh-syntax-highlighting lsd
