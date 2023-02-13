@@ -2,6 +2,8 @@
 
 aur() {
   echo "Installing $1 from AUR..."
+  mkdir -p ${BUILDDIR}
+  cd ${BUILDDIR}
   git clone https://aur.archlinux.org/$1.git
   cd $1
   sudo -u build makepkg -s
@@ -31,6 +33,8 @@ set_vars() {
   PROGRAMARI_PASSWORD=""
 
   export EDITOR=nano
+
+  BUILDDIR=/build
 }
 
 prepare_disk() {
@@ -43,10 +47,10 @@ prepare_disk() {
   mkfs.btrfs ${ROOT_PART}
 
   # Mount install destination
-  mkdir /mnt
+  mkdir -p /mnt
   mount ${ROOT_PART} /mnt
 
-  mkdir /mnt/boot
+  mkdir -p /mnt/boot
   mount ${BOOT_PART} /mnt/boot
 }
 
@@ -56,6 +60,9 @@ build_user() {
   useradd --no-create-home --shell=/bin/false build && usermod -L build
   echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/01_build
   #echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+  mkdir -p ${BUILDDIR}
+  chown build:build ${BUILDDIR}
 }
 
 base_system() {
@@ -66,7 +73,7 @@ base_system() {
   ${PACMAN} arch-install-scripts
 
   # Install base system
-  mkdir /mnt
+  mkdir -p /mnt
   pacstrap /mnt base base-devel linux linux-firmware btrfs-progs intel-ucode \
     intel-media-driver
 
@@ -76,7 +83,7 @@ base_system() {
   # Setup /etc/fstab
   genfstab -U /mnt >> /mnt/etc/fstab
 
-  build_user
+  build_user_and_dir
 
   # Chroot into new installed system
   arch-chroot /mnt
@@ -100,7 +107,7 @@ base_system() {
 }
 
 locales() {
-  # Generate locales
+  # Generate locales (remove #)
   sed 's/#en_US.UTF8 UTF-8/en_US.UTF8 UTF-8/g' /etc/locale.gen
   sed 's/#ca_ES.UTF8 UTF-8/ca_ES.UTF8 UTF-8/g' /etc/locale.gen
 
