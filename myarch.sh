@@ -59,6 +59,12 @@ build_user() {
 }
 
 base_system() {
+  # Update repos
+  pacman -Syu --noconf
+
+  # Install arch-install-scripts
+  ${PACMAN} arch-install-scripts
+
   # Install base systemm
   pacstrap /mnt base base-devel linux linux-firmware btrfs-progs intel-ucode \
     intel-media-driver
