@@ -3,8 +3,9 @@
 aur() {
   echo "Installing $1 from AUR..."
   mkdir -p ${BUILDDIR}
+  chown build:build ${BUILDDIR}
   cd ${BUILDDIR}
-  git clone https://aur.archlinux.org/$1.git
+  sudo -u build git clone https://aur.archlinux.org/$1.git
   cd $1
   sudo -u build makepkg -s
   ${INSTALL_ZST} *.zst
