@@ -1,0 +1,20 @@
+#!/bin/sh
+# Disk preparation
+
+source ./vars
+
+${PARTED} ${INSTALL_DEV} -- mklabel gpt \
+  mkpart myboot fat32 1MiB 512MiB \
+  mkpart myroot btrfs 512MiB -1s
+
+# Create filesystems
+mkfs.vfat ${BOOT_PART}
+mkfs.btrfs ${ROOT_PART}
+
+# Mount install destination
+mkdir -p ${INSTALL_DIR}
+mount ${ROOT_PART} ${INSTALL_DIR}
+
+mkdir -p ${INSTALL_DIR}/boot
+mount ${BOOT_PART} ${INSTALL_DIR}/boot
+

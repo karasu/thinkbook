@@ -1,0 +1,12 @@
+#!/bin/sh
+source ./vars
+
+# Generate locales (remove #)
+sed 's/#en_US.UTF8 UTF-8/en_US.UTF8 UTF-8/g' /etc/locale.gen
+sed 's/#ca_ES.UTF8 UTF-8/ca_ES.UTF8 UTF-8/g' /etc/locale.gen
+
+locale-gen
+localectl set-locale ca_ES.UTF8
+
+ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
+hwclock --systohc

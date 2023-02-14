@@ -1,0 +1,66 @@
+#!/bin/sh
+# Arch install script with my favourites
+
+aur() {
+  echo "Installing $1 from AUR..."
+  mkdir -p ${BUILD_DIR}
+  chown build:build ${BUILD_DIR}
+  cd ${BUILD_DIR}
+  sudo -u build git clone https://aur.archlinux.org/$1.git
+  cd $1
+  sudo -u build makepkg -s
+  ${INSTALL_ZST} *.zst
+  # cd ..
+}
+
+build_user_and_dir() {
+  ${PACMAN} sudo
+  mkdir -p /etc/sudoers.d
+  useradd --no-create-home --shell=/bin/false build && usermod -L build
+  echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/01_build
+  #echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+  mkdir -p ${BUILD_DIR}
+  chown build:build ${BUILD_DIR}
+}
+
+source ./vars
+
+# Update repos
+pacman -Syu --noconf
+
+# Install arch-install-scripts
+${PACMAN} arch-install-scripts lha
+
+# Install base system
+mkdir -p ${INSTALL_DIR}
+pacstrap ${INSTALL_DIR} base base-devel linux linux-firmware btrfs-progs intel-ucode \
+  intel-media-driver lha
+
+# Install git (for using AUR later)
+${PACMAN} git
+
+# Setup /etc/fstab
+genfstab -U ${INSTALL_DIR} >> ${INSTALL_DIR}/etc/fstab
+
+build_user_and_dir
+
+# Chroot into new installed system
+arch-chroot ${INSTALL_DIR}
+
+build_user_and_dir
+
+# Install firmwares
+${PACMAN} linux-firmware-bnx2x linux-firmware-liquidio linux-firmware-mellanox \
+  linux-firmware-nfp linux-firmware-qlogic linux-firmware-whence sof-firmware
+
+aur aic94xx-firmware
+aur mkinitcpio-firmware
+aur wd719x-firmware
+
+# Install some base tools
+${PACMAN} grub nano dhcpcd greetd iwd os-prober ntfs-3g wget curl
+
+# zsh
+${PACMAN} zsh zsh-completions powerline zsh-autosuggestions zsh-syntax-highlighting lsd
+aur zsh-theme-powerlevel10k
