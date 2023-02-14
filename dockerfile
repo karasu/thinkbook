@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
-FROM archlinux:latest
+FROM archlinux:base-devel
 COPY . /myarch
 RUN myarch/myarch
+CMD /bin/sh
 
 

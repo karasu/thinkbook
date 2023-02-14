@@ -2,14 +2,14 @@
 
 aur() {
   echo "Installing $1 from AUR..."
-  mkdir -p ${BUILDDIR}
-  chown build:build ${BUILDDIR}
-  cd ${BUILDDIR}
+  mkdir -p ${BUILD_DIR}
+  chown build:build ${BUILD_DIR}
+  cd ${BUILD_DIR}
   sudo -u build git clone https://aur.archlinux.org/$1.git
   cd $1
   sudo -u build makepkg -s
   ${INSTALL_ZST} *.zst
-  cd ..
+  # cd ..
 }
 
 set_vars() {
@@ -35,7 +35,8 @@ set_vars() {
 
   export EDITOR=nano
 
-  BUILDDIR=/build
+  BUILD_DIR=/build
+  INSTALL_DIR=/install
 }
 
 prepare_disk() {
@@ -48,11 +49,11 @@ prepare_disk() {
   mkfs.btrfs ${ROOT_PART}
 
   # Mount install destination
-  mkdir -p /mnt
-  mount ${ROOT_PART} /mnt
+  mkdir -p ${INSTALL_DIR}
+  mount ${ROOT_PART} ${INSTALL_DIR}
 
-  mkdir -p /mnt/boot
-  mount ${BOOT_PART} /mnt/boot
+  mkdir -p ${INSTALL_DIR}/boot
+  mount ${BOOT_PART} ${INSTALL_DIR}/boot
 }
 
 build_user_and_dir() {
@@ -62,8 +63,8 @@ build_user_and_dir() {
   echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/01_build
   #echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-  mkdir -p ${BUILDDIR}
-  chown build:build ${BUILDDIR}
+  mkdir -p ${BUILD_DIR}
+  chown build:build ${BUILD_DIR}
 }
 
 base_system() {
@@ -71,25 +72,25 @@ base_system() {
   pacman -Syu --noconf
 
   # Install arch-install-scripts
-  ${PACMAN} arch-install-scripts
+  ${PACMAN} arch-install-scripts lha
 
   # Install base system
-  mkdir -p /mnt
-  pacstrap /mnt base base-devel linux linux-firmware btrfs-progs intel-ucode \
-    intel-media-driver
+  mkdir -p ${INSTALL_DIR}
+  pacstrap ${INSTALL_DIR} base base-devel linux linux-firmware btrfs-progs intel-ucode \
+    intel-media-driver lha
 
   # Install git (for using AUR later)
   ${PACMAN} git
 
   # Setup /etc/fstab
-  genfstab -U /mnt >> /mnt/etc/fstab
+  genfstab -U ${INSTALL_DIR} >> ${INSTALL_DIR}/etc/fstab
 
   build_user_and_dir
 
   # Chroot into new installed system
-  arch-chroot /mnt
+  arch-chroot ${INSTALL_DIR}
 
-  build_user
+  build_user_and_dir
 
   # Install firmwares
   ${PACMAN} linux-firmware-bnx2x linux-firmware-liquidio linux-firmware-mellanox \
