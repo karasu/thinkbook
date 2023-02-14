@@ -55,7 +55,7 @@ prepare_disk() {
   mount ${BOOT_PART} /mnt/boot
 }
 
-build_user() {
+build_user_and_dir() {
   ${PACMAN} sudo
   mkdir -p /etc/sudoers.d
   useradd --no-create-home --shell=/bin/false build && usermod -L build
