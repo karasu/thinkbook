@@ -7,18 +7,17 @@ source ./install/vars
 
 source ./install/base
 source ./install/locales
-
 # source ./install/bootloader
-#users
-#enable_services
-#wifi
-#yay
-#session
-#hyprland
-#audio
-#fonts
-#apps
-#wine
-#autofs
-#scripts
+# source ./install/users
+# source ./install/services
+# source ./install/wifi
+# source ./install/yay
+# source ./install/session
+# source ./install/hyprland
+# source ./install/audio
+# source ./install/fonts
+# source ./install/apps
+# source ./install/wine
+# source ./install/autofs
+# source ./install/scripts
 

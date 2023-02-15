@@ -1,8 +1,6 @@
 #!/bin/sh
 # Disk preparation
 
-source ./vars
-
 ${PARTED} ${INSTALL_DEV} -- mklabel gpt \
   mkpart myboot fat32 1MiB 512MiB \
   mkpart myroot btrfs 512MiB -1s
