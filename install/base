@@ -24,8 +24,6 @@ build_user_and_dir() {
   chown build:build ${BUILD_DIR}
 }
 
-source ./vars
-
 # Update repos
 pacman -Syu --noconf
 
