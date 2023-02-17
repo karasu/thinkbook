@@ -1,7 +1,5 @@
 #!/bin/sh
 
-source ./install/aur
-
 aur greetd
 aur greed-tuigreet-bin
 

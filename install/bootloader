@@ -1,6 +1,6 @@
 #!/bin/sh
 
-${PACMAN} grub
+${PACMAN} grub os-prober
 grub-install ${INSTALL_DEV}
 grub-mkconfig -o /boot/grub/grub.cfg
 

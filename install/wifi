@@ -1,6 +1,9 @@
 #!/bin/sh
 
 # iwd (wifi)
+
+${PACMAN} iwd
+
 echo "[Security]
 EAP-Method=PEAP
 EAP-Identity=${EAP_IDENTITY}

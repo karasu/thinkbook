@@ -1,6 +1,9 @@
 #!/bin/sh
 # Arch install script with my favourite choices
 
+# Add aur function
+source ./install/aur
+
 echo "LOADING INSTALL VARIABLES..."
 source ./install/vars
 
@@ -26,16 +29,16 @@ echo "WIFI SETUP..."
 source ./install/wifi
 
 echo "INSTALLING SESSION FILES..."
-# source ./install/session
+source ./install/session
 
 echo "INSTALLING HYPRLAND WM..."
-# source ./install/hyprland
+source ./install/hyprland
 
 echo "AUDIO SETUP..."
-# source ./install/audio
+source ./install/audio
 
 echo "INSTALLING ADITIONAL FONTS..."
-# source ./install/fonts
+source ./install/fonts
 
 echo "INSTALLING APPLICATIONS..."
 # source ./install/apps

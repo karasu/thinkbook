@@ -1,7 +1,5 @@
 #!/bin/sh
 
-source ./install/aur
-
 build_user_and_dir() {
   ${PACMAN} sudo
   mkdir -p /etc/sudoers.d
@@ -50,7 +48,7 @@ aur mkinitcpio-firmware
 aur wd719x-firmware
 
 # Install some base tools
-${PACMAN} grub nano dhcpcd iwd os-prober ntfs-3g wget curl
+${PACMAN} grub nano dhcpcd ntfs-3g wget curl
 
 # zsh
 ${PACMAN} zsh zsh-completions powerline zsh-autosuggestions zsh-syntax-highlighting lsd
