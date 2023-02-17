@@ -1,0 +1,14 @@
+#!/bin/sh
+
+source ./install/aur
+
+aur greetd
+aur greed-tuigreet-bin
+
+echo '[terminal]
+vt = 1
+
+[default_session]
+command = "tuigreet --cmd hypr"
+user = "greeter"' >> /etc/greetd/config.toml
+

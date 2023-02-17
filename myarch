@@ -20,13 +20,10 @@ echo "ADDING USERS..."
 source ./install/users
 
 echo "ENABLING SERVICES..."
-# source ./install/services
+source ./install/services
 
 echo "WIFI SETUP..."
-# source ./install/wifi
-
-echo "INSTALLING AUR HELPER (YAY)..."
-# source ./install/yay
+source ./install/wifi
 
 echo "INSTALLING SESSION FILES..."
 # source ./install/session
