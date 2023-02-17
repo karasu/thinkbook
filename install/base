@@ -11,6 +11,19 @@ build_user_and_dir() {
   chown build:build ${BUILD_DIR}
 }
 
+install_firmwares() {
+  ${PACMAN} linux-firmware-bnx2x linux-firmware-liquidio linux-firmware-mellanox \
+    linux-firmware-nfp linux-firmware-qlogic linux-firmware-whence sof-firmware \
+    linux-firmware
+
+  aur ast-firmware
+  aur wd719x-firmware
+  aur upd72020x-fw
+  aur aic94xx-firmware
+  aur mkinitcpio-firmware
+  aur wd719x-firmware
+}
+
 # Update repos
 pacman -Syu --noconf
 
@@ -35,24 +48,16 @@ arch-chroot ${INSTALL_DIR}
 
 build_user_and_dir
 
-# Install firmwares
-${PACMAN} linux-firmware-bnx2x linux-firmware-liquidio linux-firmware-mellanox \
-  linux-firmware-nfp linux-firmware-qlogic linux-firmware-whence sof-firmware \
-  linux-firmware
-
-aur ast-firmware
-aur wd719x-firmware
-aur upd72020x-fw
-aur aic94xx-firmware
-aur mkinitcpio-firmware
-aur wd719x-firmware
+# Install Firmwares
+#install_firmwares
 
 # Install some base tools
 ${PACMAN} grub nano dhcpcd ntfs-3g wget curl
 
 # zsh
 ${PACMAN} zsh zsh-completions powerline zsh-autosuggestions zsh-syntax-highlighting lsd
-aur zsh-theme-powerlevel10k
+
+# aur zsh-theme-powerlevel10k
 
 # Greeter
 aur greetd
@@ -60,4 +65,3 @@ aur greetd-tuigreet-bin
 
 # Yay (AUR helper)
 aur yay
-
