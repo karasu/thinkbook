@@ -1,5 +1,4 @@
 #!/bin/sh
-# Arch install script with my favourites
 
 aur() {
   echo "Installing $1 from AUR..."

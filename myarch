@@ -1,23 +1,54 @@
 #!/bin/sh
 # Arch install script with my favourite choices
 
+echo "LOADING INSTALL VARIABLES..."
 source ./install/vars
 
+echo "HARDDISK SETUP..."
 # source ./install/disk
 
+echo "INSTALLING BASE SYSTEM..."
 source ./install/base
+
+echo "CONFIGURING LOCALES..."
 source ./install/locales
-# source ./install/bootloader
-# source ./install/users
+
+echo "BOOTLOADER SETUP..."
+source ./install/bootloader
+
+echo "ADDING USERS..."
+source ./install/users
+
+echo "ENABLING SERVICES..."
 # source ./install/services
+
+echo "WIFI SETUP..."
 # source ./install/wifi
+
+echo "INSTALLING AUR HELPER (YAY)..."
 # source ./install/yay
+
+echo "INSTALLING SESSION FILES..."
 # source ./install/session
+
+echo "INSTALLING HYPRLAND WM..."
 # source ./install/hyprland
+
+echo "AUDIO SETUP..."
 # source ./install/audio
+
+echo "INSTALLING ADITIONAL FONTS..."
 # source ./install/fonts
+
+echo "INSTALLING APPLICATIONS..."
 # source ./install/apps
+
+echo "INSTALLING WINDOWS EMULATOR (WINE)..."
 # source ./install/wine
+
+echo "AUTOFS SETUP..."
 # source ./install/autofs
+
+echo "COPYING CONFIG SCRIPTS..."
 # source ./install/scripts
 

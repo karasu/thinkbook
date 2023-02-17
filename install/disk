@@ -1,5 +1,4 @@
 #!/bin/sh
-# Disk preparation
 
 ${PARTED} ${INSTALL_DEV} -- mklabel gpt \
   mkpart myboot fat32 1MiB 512MiB \

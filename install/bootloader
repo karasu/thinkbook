@@ -1,0 +1,6 @@
+#!/bin/sh
+
+${PACMAN} grub
+grub-install ${INSTALL_DEV}
+grub-mkconfig -o /boot/grub/grub.cfg
+
