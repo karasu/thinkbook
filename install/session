@@ -10,3 +10,5 @@ vt = 1
 command = "tuigreet --cmd hypr"
 user = "greeter"' >> /etc/greetd/config.toml
 
+systemctl enable greetd
+

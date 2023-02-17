@@ -22,9 +22,6 @@ source ./install/bootloader
 echo "ADDING USERS..."
 source ./install/users
 
-echo "ENABLING SERVICES..."
-source ./install/services
-
 echo "WIFI SETUP..."
 source ./install/wifi
 
@@ -41,14 +38,16 @@ echo "INSTALLING ADITIONAL FONTS..."
 source ./install/fonts
 
 echo "INSTALLING APPLICATIONS..."
-# source ./install/apps
+source ./install/apps
 
 echo "INSTALLING WINDOWS EMULATOR (WINE)..."
-# source ./install/wine
+source ./install/wine
 
 echo "AUTOFS SETUP..."
-# source ./install/autofs
+source ./install/autofs
 
-echo "COPYING CONFIG SCRIPTS..."
-# source ./install/scripts
+echo "COPYING HELPER SCRIPTS TO /usr/local/bin..."
+cp -v scripts/* /usr/local/bin
+
+echo "DONE!"
 

@@ -12,3 +12,6 @@ EAP-PEAP-Phase2-Identity=${EAP_IDENTITY}
 EAP-PEAP-Phase2-Password=${EAP_PASSWORD}
 [Settings]
 AutoConnect=true" > /var/lib/iwd/gencat_ENS_EDU.8021x
+
+systemctl enable iwd
+

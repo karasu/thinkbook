@@ -1,5 +1,0 @@
-#!/bin/sh
-
-systemctl enable dhcpcd
-systemctl enable greetd
-systemctl enable iwd

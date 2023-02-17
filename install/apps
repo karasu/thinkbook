@@ -1,0 +1,18 @@
+#!/bin/sh
+
+aur gimp-devel
+aur github-desktop-bin
+aur google-chrome
+aur zoom
+
+${PACMAN} grim ffmpegthumbnailer gnome-tweaks jre-openjdk lxqt-policykit \
+  mesa-utils vulkan-intel mlocate moc mpv mtools nfs-utils youtube-dl \
+  zathura-pdf-poppler zathura imv
+
+${PACMAN} zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting \
+  zsh-theme-powerlevel10k
+
+chsh -s /bin/zsh karasu
+chsh -s /bin/zsh root
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
