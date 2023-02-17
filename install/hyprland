@@ -17,13 +17,9 @@ ${PACMAN} base-devel gdb ninja gcc cmake libxcb xcb-proto xcb-util \
   sudo cp build/hyprpaper /usr/local/bin 
   cd ..
 
-  # Copy hyprland conf
-  mkdir -p ${CONF_DIR}/hypr
-  cp -Rv config/hypr/* ${CONF_DIR}/hypr
-
-  # Copy waybar conf
-  mkdir -p ${CONF_DIR}/waybar
-  cp -Rv config/waybar/* ${CONF_DIR}/waybar
+  # Copy config files
+  mkdir -p ${CONF_DIR}
+  cp -Rv config/* ${CONF_DIR}
 
   ${PACMAN} kitty zathura openssh p7zip pop-icon-theme capitaine-cursors breeze-icons
 
