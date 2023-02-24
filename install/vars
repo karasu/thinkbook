@@ -25,4 +25,4 @@ export PROGRAMARI_PASSWORD=""
 export EDITOR=nano
 
 export BUILD_DIR=/build
-export INSTALL_DIR=/install
+export INSTALL_DIR=/mnt
