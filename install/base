@@ -60,6 +60,7 @@ ${PACMAN} zsh zsh-completions powerline zsh-autosuggestions zsh-syntax-highlight
 # aur zsh-theme-powerlevel10k
 
 # Greeter
+${PACMAN} rust scdoc
 aur greetd
 aur greetd-tuigreet-bin
 

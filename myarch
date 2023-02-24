@@ -1,52 +1,58 @@
 #!/bin/sh
 # Arch install script with my favourite choices
 
+show_title() {
+  echo "------------------------------------------------------------------" 
+  echo $1
+  echo "------------------------------------------------------------------"
+}
+
 # Add aur function
 source ./install/aur
 
-echo "LOADING INSTALL VARIABLES..."
+show_title "LOADING INSTALL VARIABLES..."
 source ./install/vars
 
-echo "HARDDISK SETUP..."
+show_title "HARDDISK SETUP..."
 # source ./install/disk
 
-echo "INSTALLING BASE SYSTEM..."
+show_title "INSTALLING BASE SYSTEM..."
 source ./install/base
 
-echo "CONFIGURING LOCALES..."
+show_title "CONFIGURING LOCALES..."
 source ./install/locales
 
-echo "BOOTLOADER SETUP..."
+show_title "BOOTLOADER SETUP..."
 source ./install/bootloader
 
-echo "ADDING USERS..."
+show_title "ADDING USERS..."
 source ./install/users
 
-echo "WIFI SETUP..."
+show_title "WIFI SETUP..."
 source ./install/wifi
 
-echo "INSTALLING SESSION FILES..."
+show_title "INSTALLING SESSION FILES..."
 source ./install/session
 
-echo "INSTALLING HYPRLAND WM..."
+show_title "INSTALLING HYPRLAND WM..."
 source ./install/hyprland
 
-echo "AUDIO SETUP..."
+show_title "AUDIO SETUP..."
 source ./install/audio
 
-echo "INSTALLING ADITIONAL FONTS..."
+show_title "INSTALLING ADITIONAL FONTS..."
 source ./install/fonts
 
-echo "INSTALLING APPLICATIONS..."
+show_title  "INSTALLING APPLICATIONS..."
 source ./install/apps
 
-echo "INSTALLING WINDOWS EMULATOR (WINE)..."
+show_title "INSTALLING WINDOWS EMULATOR (WINE)..."
 source ./install/wine
 
-echo "AUTOFS SETUP..."
+show_title "AUTOFS SETUP..."
 source ./install/autofs
 
-echo "COPYING HELPER SCRIPTS TO /usr/local/bin..."
+show_title "COPYING HELPER SCRIPTS TO /usr/local/bin..."
 cp -v scripts/* /usr/local/bin
 
 echo "DONE!"
