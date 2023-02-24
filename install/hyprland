@@ -30,5 +30,6 @@ ${PACMAN} base-devel gdb ninja gcc cmake libxcb xcb-proto xcb-util \
   gsettings set org.gnome.desktop.interface gtk-theme Fantome
   gsettings set org.gnome.desktop.interface cursor-theme capitaine-cursors
 
-  ${PACMAN} qt5-wayland qt5ct qt5-webchannel qt5-webengine polkit-qt5 polkit-kde-agent
+  ${PACMAN} qt5-wayland qt5ct qt5-webchannel qt5-webengine polkit-qt5 polkit-kde-agent \
+    xdg-user-dirs-gtk
 

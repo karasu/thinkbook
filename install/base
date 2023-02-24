@@ -64,4 +64,5 @@ aur greetd
 aur greetd-tuigreet-bin
 
 # Yay (AUR helper)
+${PACMAN} go
 aur yay
