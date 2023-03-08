@@ -4,19 +4,65 @@ import os
 import random
 import subprocess
 
-backgrounds = "/home/karasu/nordic-wallpapers"
+# Wallpaper switcher
+# Uses hyprpaper for still images, mpvpaper for videos
 
-filename = random.choice(os.listdir(backgrounds))
-wallpaper = os.path.join(backgrounds, filename)
 
-# Unload all inactive wallpapers
-cmd = ["hyprctl", "hyprpaper", "unload", "all"]
-subprocess.run(cmd, stdout=subprocess.DEVNULL)
+#extensions = [".jpg", ".png", ".svg", ".mp4"]
+extensions = [".mp4"]
+background_folders = ["/usr/share/backgrounds", "/usr/share/wallpapers"]
+monitor = "eDP-1"
 
-cmd = ["hyprctl", "hyprpaper", "preload", wallpaper]
-subprocess.run(cmd, stdout=subprocess.DEVNULL)
+def scan_dir(path):
+    paths = []
+    with os.scandir(path) as it:
+        for entry in it:
+            if not entry.name.startswith('.'):
+                if entry.is_dir():
+                    paths += scan_dir(entry.path)
+                else:
+                    if entry.path[-4:] in extensions:
+                        paths.append(entry.path)
+    return paths
 
-mwall = "eDP-1," + wallpaper
-cmd = ["hyprctl", "hyprpaper", "wallpaper", mwall]
-subprocess.run(cmd, stdout=subprocess.DEVNULL)
+def choose_wallpaper():
+    paths = []
+
+    for folder in background_folders:
+        paths += scan_dir(folder)
+
+    wallpaper = random.choice(paths)
+
+    return wallpaper
+
+
+def change_wallpaper(wallpaper):
+    # Unload all inactive wallpapers
+    cmd = ["hyprctl", "hyprpaper", "unload", "all"]
+    subprocess.run(cmd, stdout=subprocess.DEVNULL)
+
+    # stop forked mpvpaper instance
+    if os.path.exists("/tmp/mpv-socket1"):
+        cmd = ["killall", "mpvpaper"]
+        subprocess.run(cmd, stdout=subprocess.DEVNULL)
+
+    print(wallpaper)
+
+    if not wallpaper.endswith('.mp4'):
+        cmd = ["hyprctl", "hyprpaper", "preload", wallpaper]
+        subprocess.run(cmd, stdout=subprocess.DEVNULL)
+
+        mwall = monitor + ',' + wallpaper
+        cmd = ["hyprctl", "hyprpaper", "wallpaper", mwall]
+        subprocess.run(cmd, stdout=subprocess.DEVNULL)
+    else:
+        cmd = [
+            "mpvpaper", "-f",
+            "-o", "no-audio loop-file=inf input-ipc-server=/tmp/mpv-socket1",
+            monitor, wallpaper]
+        print(cmd)
+        subprocess.run(cmd, stdout=subprocess.DEVNULL)
+
+
+change_wallpaper(choose_wallpaper())
 
