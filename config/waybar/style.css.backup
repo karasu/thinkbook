@@ -1,14 +1,13 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: FontAwesome, Roboto, "Ubuntu Nerd Font";
+    font-family: "Ubuntu Nerd Font";
     font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
     background: transparent;
-    background-color: rgba(43,48,59,0.5);
     color: white;
 }
 
@@ -38,7 +37,7 @@ window#waybar {
     border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #submap {
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
     padding: 0 3px;
     margin: 0 2px;
 }
