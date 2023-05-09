@@ -1,0 +1,19 @@
+#!/bin/sh
+
+Artist=$(playerctl metadata artist)
+Title=$(playerctl metadata title)
+Notify="notify-send -a spotify -i spotify"
+
+if [ "$PLAYER_EVENT" = "play" ]; then
+  ${Notify} "${Artist} - ${Title}"
+elif [ "$PLAYER_EVENT" = "pause" ]; then
+  ${Notify} " ${Artist} - ${Title}"
+else
+  PLAYER_STATUS=$(playerctl status 2> /dev/null)
+
+  if [ "${PLAYER_STATUS}" == "Playing" ]; then
+    ${Notify} "${Artist} - ${Title}"
+  elif [ "$player_status" = "Paused" ]; then
+    ${Notify} "  ${Artist} - ${Title}"
+  fi
+fi
