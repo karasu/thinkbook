@@ -1,3 +1,0 @@
-#!/bin/sh
-echo "Building test image..."
-docker build --force-rm --no-cache --pull -t myarch:test .

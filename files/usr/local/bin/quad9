@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [[ $1 == "on"  ]]; then
+  # Malware Blocking, DNSSEC Validation
+  sudo resolvectl dns wlan0 9.9.9.9
+
+  # Malware blocking, DNSSEC Validation, ECS enabled
+  #sudo resolvectl dns wlan0 9.9.9.11
+elif [[ $1 == "off" ]]; then
+  # Posa la dns de l'institut
+  sudo resolvectl dns wlan0 192.168.0.166
+else
+  echo "Usage: quad9 on|off"
+fi

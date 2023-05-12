@@ -32,6 +32,7 @@ apr
 apr-util
 arandr
 archcraft-gtk-theme-manhattan
+archinstall
 archlinux-keyring
 argon2
 asleap
@@ -49,7 +50,9 @@ autofs
 automake
 avahi
 awesome-terminal-fonts
+azote
 babl
+baph
 base
 base-devel
 bash
@@ -88,6 +91,7 @@ ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
 cabextract
+cage
 cairo
 cairomm
 canta-gtk-theme
@@ -96,6 +100,7 @@ cantarell-fonts
 capitaine-cursors
 catdoc
 catimg
+cava
 cblas
 ccze
 cdparanoia
@@ -111,6 +116,7 @@ cinnamon-translations
 clang
 clipman
 clucene
+cmake
 codec2
 compiler-rt
 confuse
@@ -250,6 +256,7 @@ glib2-docs
 glibc
 glibmm
 glibmm-2.68
+glm
 glslang
 glu
 gmp
@@ -271,6 +278,7 @@ go
 gobject-introspection
 gobject-introspection-runtime
 google-chrome-beta
+gopsuinfo
 gperftools
 gpgme
 gpm
@@ -281,8 +289,11 @@ graphene
 graphite
 greetd
 greetd-agreety
+greetd-ddlm-git
 greetd-tuigreet
+greetd-wlgreet
 grep
+grim
 groff
 gsettings-desktop-schemas
 gsfonts
@@ -306,6 +317,10 @@ gtk-update-icon-cache
 gtk2
 gtk3
 gtk4
+gtklock
+gtklock-playerctl-module
+gtklock-powerbar-module
+gtklock-userinfo-module
 gtkmm3
 gtksourceview5
 guile
@@ -721,6 +736,8 @@ libnids
 libnl
 libnl1
 libnm
+libnma
+libnma-common
 libnotify
 libnsgif
 libnsl
@@ -875,6 +892,7 @@ libyuv
 libzip
 libzmf
 licenses
+light
 lighttpd
 lilv
 linset
@@ -929,6 +947,7 @@ mdk4
 media-player-info
 mesa
 mesa-utils
+meson
 metasploit
 mfcuk
 mfoc
@@ -974,12 +993,15 @@ netattack
 netdiscover
 netstumbler
 nettle
+network-manager-applet
 networkmanager
 nfs-utils
 nfsidmap
 nftables
 ngrep
+ninja
 nitch
+nm-connection-editor
 nmap
 nodejs
 nordic-wallpapers
@@ -993,7 +1015,17 @@ nspr
 nss
 ntfs-3g
 numactl
-nwg-bar
+nwg-bar-bin
+nwg-displays
+nwg-dock-bin
+nwg-drawer-bin
+nwg-icon-picker
+nwg-look-bin
+nwg-menu-bin
+nwg-panel
+nwg-shell
+nwg-shell-config
+nwg-shell-wallpapers
 nzyme
 ocl-icd
 odt2txt
@@ -1001,6 +1033,7 @@ oniguruma
 openal
 opencl-headers
 opencore-amr
+opendoas
 openexr
 openjpeg2
 openmpi
@@ -1017,12 +1050,15 @@ otf-font-awesome
 otf-overpass
 p11-kit
 pacman
+pacman-contrib
 pacman-mirrorlist
 pahole
 pam
 pambase
+pamixer
 pango
 pangomm
+papirus-icon-theme
 parted
 patch
 pavucontrol
@@ -1092,6 +1128,7 @@ pixman
 pkgconf
 playerctl
 polkit
+polkit-gnome
 polkit-kde-agent
 polkit-qt5
 polybar
@@ -1150,6 +1187,7 @@ python-croniter
 python-cryptography
 python-cssselect
 python-cycler
+python-dasbus
 python-dateutil
 python-defusedxml
 python-dhcplib
@@ -1171,12 +1209,15 @@ python-flask-restful
 python-flask-socketio
 python-fonttools
 python-future
+python-geographiclib
 python-geoip
+python-geopy
 python-gobject
 python-greenlet
 python-html5lib
 python-httplib2
 python-hyperlink
+python-i3ipc
 python-idna
 python-ifaddr
 python-importlib-metadata
@@ -1234,6 +1275,7 @@ python-pooch
 python-poormanslogging
 python-powerline
 python-protobuf
+python-psutil
 python-ptyprocess
 python-pyaml
 python-pyasn1
@@ -1242,6 +1284,7 @@ python-pycparser
 python-pycryptodome
 python-pycryptodomex
 python-pydantic
+python-pydbus
 python-pyfiglet
 python-pyftpdlib
 python-pygments
@@ -1267,6 +1310,7 @@ python-pyxdg
 python-pyzmq
 python-rangeparser
 python-rapidfuzz
+python-redis
 python-rencode
 python-requests
 python-requests-toolbelt
@@ -1276,6 +1320,7 @@ python-scapy
 python-scapy-http
 python-scipy
 python-secretstorage
+python-send2trash
 python-service-identity
 python-setproctitle
 python-setuptools
@@ -1285,6 +1330,8 @@ python-six
 python-socketio
 python-soupsieve
 python-spoofmac
+python-spotipy
+python-spotpris2
 python-tabulate
 python-termcolor
 python-thrift
@@ -1311,6 +1358,7 @@ python-websockets
 python-werkzeug
 python-wheel
 python-wireless
+python-xlib
 python-yaml
 python-zeroconf
 python-zipp
@@ -1443,6 +1491,7 @@ responder
 rfdump
 rfidiot
 rfidtool
+rhash
 rnnoise
 rofi
 roguehostapd
@@ -1504,6 +1553,7 @@ ruby-tmpdir
 ruby-uri
 rubygems
 run-parts
+rust
 samba
 sane
 sbc
@@ -1533,6 +1583,7 @@ siji-ttf
 sip
 sipcalc
 slang
+slurp
 smartmontools
 smbclient
 snapper
@@ -1572,8 +1623,12 @@ sudo
 suitesparse
 svt-av1
 svt-hevc
+swappy
 sway
+swaybg
+swayidle
 swaylock-effects
+swaync
 sysfsutils
 syslinux
 systemd
@@ -1647,6 +1702,7 @@ util-linux
 util-linux-libs
 v4l-utils
 vagrant
+vi
 vid.stab
 vim
 vim-runtime
@@ -1674,6 +1730,7 @@ wavpack
 way-displays
 waybar-hyprland-git
 waybar-mpris-git
+wayfire
 wayland
 wayland-protocols
 wayland-utils
@@ -1683,6 +1740,8 @@ webkit2gtk
 webkit2gtk-4.1
 webrtc-audio-processing
 wepbuster
+wf-config
+wf-shell
 wget
 which
 wi-feye
@@ -1710,7 +1769,10 @@ wl-clipboard
 wl-mirror
 wlan2eth
 wlc
+wlr-randr
 wlroots
+wlroots0.15
+wlsunset
 wmctrl
 wob
 woff2
@@ -1736,6 +1798,7 @@ xcb-util-renderutil
 xcb-util-wm
 xcb-util-xrm
 xcompmgr
+xcur2png
 xcursor-breeze
 xdg-dbus-proxy
 xdg-desktop-portal

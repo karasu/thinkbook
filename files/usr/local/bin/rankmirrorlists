@@ -1,0 +1,17 @@
+#!/bin/bash
+
+BACKUP="/etc/pacman.d/mirrorlists"
+CONF="/etc/pacman.d"
+
+# backup mirrorlists
+cp ${CONF}/mirrorlist ${BACKUP}
+cp ${CONF}/blackarch-mirrorlist ${BACKUP}
+cp ${CONF}/chaotic-mirrorlist ${BACKUP}
+
+# Download Arch mirrorlist
+reflector > ${CONF}/mirrorlist
+
+rankmirrors -n 5 -v ${CONF}/mirrorlist > ${CONF}/mirrorlist
+rankmirrors -n 5 -r chaotic-aur -v ${CONF}/chaotic-mirrorlist > ${CONF}/chaotic-mirrorlist
+rankmirrors -n 5 -r blackarch -v ${CONF}/blackarch-mirrorlist > ${CONF}/blackarch-mirrorlist
+

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cd ~
+
+# Log WLR errors and logs to the hyprland log. Recommended
+export HYPRLAND_LOG_WLR=1
+
+# DO NOT UNCOMMENT THIS!
+##export SDL_VIDEODRIVER=wayland
+
+#export GTK_THEME=Materia:light
+#export GTK_THEME=Canta:dark
+export GTK_THEME=Manhattan:dark
+
+export QT_QPA_PLATFORM=wayland
+
+exec Hyprland &> /dev/null
+
+

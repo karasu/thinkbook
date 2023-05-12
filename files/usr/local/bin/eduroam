@@ -1,0 +1,5 @@
+#!/bin/sh
+
+iwctl station wlan0 connect eduroam
+resolvectl dns wlan0 9.9.9.9
+

@@ -1,0 +1,5 @@
+Server = https://us-fl-mirror.chaotic.cx/$repo/$arch
+Server = https://us-va-mirror.chaotic.cx/$repo/$arch
+Server = https://cl-mirror.chaotic.cx/$repo/$arch
+Server = https://us-ut-mirror.chaotic.cx/$repo/$arch
+Server = https://de-3-mirror.chaotic.cx/$repo/$arch

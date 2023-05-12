@@ -1,8 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
-Artist=$(playerctl metadata artist)
-Title=$(playerctl metadata title)
 Notify="notify-send -a spotify -i spotify"
+
+Artist=$(playerctl -s metadata artist)
+if [ "${Artist}" = "" ]; then
+  exit 0
+fi
+
+Title=$(playerctl -s metadata title)
+if [ "$(Title)" = "" ]; then
+  exit 0
+fi
 
 if [ "$PLAYER_EVENT" = "play" ]; then
   ${Notify} "${Artist} - ${Title}"

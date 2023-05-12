@@ -1,0 +1,15 @@
+#!/bin/bash
+
+artist=$(playerctl -s metadata artist)
+if [ "${artist}" = "" ]; then
+  exit 0
+fi
+
+title=$(playerctl -s metadata title)
+if [ "${title}" = "" ]; then
+  exit 0
+fi
+
+echo "{\"artist\":\"${artist}\",\"title\":\"${title}\"}"
+
+
