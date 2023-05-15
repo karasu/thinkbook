@@ -1,2 +1,3 @@
-# Thinkbook (school laptop) Arch Install files
- Personal Arch installation
+# My thinkbook laptop arch install files
+
+Archinstall config files for my laptop.
