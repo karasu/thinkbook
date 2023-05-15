@@ -1,3 +1,3 @@
 # My thinkbook laptop arch install files
 
-Archinstall config files for my laptop.
+[Archinstall](https://github.com/karasu/thinkbook-archinstall.git) config files for my laptop.
