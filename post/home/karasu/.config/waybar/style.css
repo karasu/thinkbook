@@ -1,15 +1,17 @@
+@import "mocha.css";
+
 * {
     border: none;
     border-radius: 0;
-    font-family: FontAwesome, Roboto, "Ubuntu Nerd Font";
-    font-size: 13px;
+    font-family: "Ubuntu Nerd Font";
+    font-size: 14px;
     min-height: 0;
+    color: @text;
 }
 
 window#waybar {
-    background: transparent;
-    background-color: rgba(43,48,59,0.5);
-    color: white;
+    background-color: shade(@base, 0.9);
+    border: 2px solid alpha(@crust, 0.3);
 }
 
 #window {

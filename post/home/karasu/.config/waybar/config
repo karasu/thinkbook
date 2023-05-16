@@ -2,10 +2,9 @@
     "layer": "top",
     "position": "top",
     "height": 24,
-    // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "hyprland/submap", "custom/spotify"],
+    "modules-left": ["wlr/workspaces", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "cpu", "memory", "battery", "tray", "pulseaudio", "clock"],
+    "modules-right": ["backlight", "network", "cpu", "memory", "tray", "pulseaudio", "mpris", "battery", "clock", "custom/power"],
     "wlr/workspaces": {
         "disable-scroll": false,
         "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -33,6 +32,8 @@
     },
     "clock": {
         "format": "{:%d/%m/%Y %H:%M}",
+        "tooltip": false,
+        "on-click": "chrome calendar.google.com"
     },
     "cpu": {
         "format": "cpu: {usage}% "
@@ -50,13 +51,17 @@
         "format": "{capacity}% {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "tlpui"
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format-wifi": "{signalStrength}%",
+        "on-click": "iwgtk"
     },
     "pulseaudio": {
         //"scroll-step": 1,
@@ -74,11 +79,50 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/spotify": {
-        "format": " {}",
-        "max-length": 40,
-        "interval": 30, // Remove this if your script is endless and write in loop
-        "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
-        "exec-if": "pgrep spotify"
-    }
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent: >3}%",
+        "format-icons": ["", ""],
+        "on-scroll-down": "brightnessctl -c backlight set 1%-",
+        "on-scroll-up": "brightnessctl -c backlight set +1%"
+    },
+    "custom/power": {
+      	"format":"⏻",
+       	"on-click": "nwg-bar",
+      	"tooltip": false
+    },
+"cava": {
+//        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+        "framerate": 60,
+        "autosens": 1,
+        "sensitivity": 100,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
+"mpris": {
+	"format": "DEFAULT: {player_icon} {dynamic}",
+	"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	// "ignored-players": ["firefox"]
+}
 }
