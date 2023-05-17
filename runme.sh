@@ -2,10 +2,10 @@
 
 loadkeys es
 pacman -Sy --noconfirm
-pacman -S --noconfirm git python archinstall wget unzip 
+pacman -S --noconfirm git python archinstall wget
 
-wget https://github.com/karasu/thinkbook-archinstall/archive/refs/heads/main.zip
-unzip main.zip
+wget https://github.com/karasu/thinkbook-archinstall/archive/refs/heads/main.tar.gz
+tar xvfz main.tar.gz
 
 cd thinkbook-archinstall-main
 
