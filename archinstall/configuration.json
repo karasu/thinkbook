@@ -35,7 +35,7 @@
     "packages": [
         "chromium"
     ],
-    "profile": "minimal",
+    "profile": "desktop",
     "script": "guided",
     "silent": false,
     "sys-encoding": "utf-8",
@@ -43,4 +43,3 @@
     "timezone": "Europe/Rome",
     "version": "2.5.6"
 }
-
