@@ -1,6 +1,10 @@
 #!/bin/sh
 
-pacman -Sy --noconfirm --needed wget
+pacman-key -u
+pacman-key --populate
+pacman -Sy archlinux-keyring
+
+pacman -S --noconfirm --needed wget
 wget https://github.com/karasu/thinkbook/archive/refs/heads/main.tar.gz
 tar xvf main.tar.gz
 cd thinkbook-main
