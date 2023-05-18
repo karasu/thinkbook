@@ -11,7 +11,6 @@
     "harddrives": [
         "/dev/nvme0n1"
     ],
-    "swap": true,
     "hostname": "thinkbook",
     "kernels": [
         "linux"
@@ -37,9 +36,15 @@
     "packages": [
         "chromium"
     ],
-    "profile": "desktop",
+    "profile": {
+        "path": "archinstall/hyprland.py"
+    },
     "script": "guided",
     "silent": false,
+    "swap": true,
+    "sway_sys_priv_ctrl": [
+        "polkit"
+    ],
     "sys-encoding": "utf-8",
     "sys-language": "ca_ES.UTF-8",
     "timezone": "Europe/Rome",
