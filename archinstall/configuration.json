@@ -37,7 +37,7 @@
         "chromium"
     ],
     "profile": {
-        "path": "archinstall/hyprland.py"
+        "path": "/root/thinkbook-main/archinstall/hyprland.py"
     },
     "script": "guided",
     "silent": false,
