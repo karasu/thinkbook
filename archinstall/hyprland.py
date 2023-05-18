@@ -1,4 +1,4 @@
-# A desktop environment using "Sway"
+# A desktop environment using "Hyprland"
 from typing import Any, TYPE_CHECKING
 
 import archinstall
@@ -11,16 +11,18 @@ if TYPE_CHECKING:
 is_top_level_profile = False
 
 __packages__ = [
-	"sway",
+	"hyprland",
+        "xdg-desktop-portal-hyprland",
+        "mako",
 	"swaylock",
 	"swayidle",
 	"waybar",
-	"dmenu",
+	"wofi",
 	"light",
 	"grim",
 	"slurp",
 	"pavucontrol",
-	"foot",
+	"kitty",
 ]
 
 
