@@ -34,7 +34,7 @@
     "no_pkg_lookups": false,
     "offline": false,
     "packages": [
-        "chromium"
+        "greetd", "lsd"
     ],
     "profile": {
         "path": "/root/thinkbook-main/archinstall/hyprland.py"
