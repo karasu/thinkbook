@@ -2,7 +2,7 @@
 
 pacman-key -u
 pacman-key --populate
-pacman -Sy archlinux-keyring
+pacman -Sy --noconfirm archlinux-keyring
 
 pacman -S --noconfirm --needed wget
 wget https://github.com/karasu/thinkbook/archive/refs/heads/main.tar.gz
