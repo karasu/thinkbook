@@ -83,12 +83,9 @@
     "timezone": "Europe/Rome",
     "version": "2.5.6",
     "custom-commands": [
-        "cd /home/karasu; git clone https://aur.archlinux.org/yay.git",
-        "chown -R karasu:karasu /home/karasu/yay",
         "usermod -aG wheel karasu",
-        "cd /home/karasu; git clone https://github.com/karasu/thinkbook.git",
-        "chown -R karasu:karasu /home/karasu/thinkbook",
-        "chmod +x /home/karasu/thinkbook/post/scripts/*",
-        "cd /home/karasu/thinkbook/post/scripts; source ./run_all.sh"
+        "cd /; git clone https://github.com/karasu/thinkbook.git",
+        "chown -R 1000:1000 /thinkbook",
+        "cd /thinkbook/post/scripts; ./run_all.sh"
     ]
 }
