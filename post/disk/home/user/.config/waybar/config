@@ -2,9 +2,9 @@
     "layer": "top",
     "position": "top",
     "height": 24,
-    "modules-left": ["wlr/workspaces", "hyprland/submap"],
+    "modules-left": ["wlr/workspaces", "hyprland/submap", "custom/waybar-mpris"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["backlight", "network", "cpu", "memory", "tray", "pulseaudio", "mpris", "battery", "clock", "custom/power"],
+    "modules-right": ["backlight", "network", "cpu", "memory", "tray", "pulseaudio", "battery", "clock", "custom/power"],
     "wlr/workspaces": {
         "disable-scroll": false,
         "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -113,16 +113,12 @@
                    "on-click-right": "mode"
                    }
     },
-"mpris": {
-	"format": "DEFAULT: {player_icon} {dynamic}",
-	"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
-	"player-icons": {
-		"default": "▶",
-		"mpv": "🎵"
-	},
-	"status-icons": {
-		"paused": "⏸"
-	},
-	// "ignored-players": ["firefox"]
-}
+  "custom/waybar-mpris": {
+     "return-type": "json",
+     "exec": "waybar-mpris --position --autofocus",
+     "on-click": "waybar-mpris --send toggle",
+     // "on-scroll-up": "waybar-mpris --send next",
+     // "on-scroll-down": "waybar-mpris --send prev",
+     "escape": "true"
+  }
 }

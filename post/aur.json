@@ -1,6 +1,9 @@
-"aur-packages": [
+{
+"aur": [
    "gimp-devel",
    "google-chrome",
    "greetd-tuigreet-bin",
-   "yay",
+   "nitch"
 ]
+}
+

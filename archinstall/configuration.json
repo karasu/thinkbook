@@ -38,6 +38,11 @@
         "ffmpegthumbnailer",
         "greetd",
         "grim",
+        "gst-plugin-pipewire",
+        "gst-plugins-base",
+        "gst-plugins-bad",
+        "gst-plugins-good",
+        "gst-plugins-ugly",
         "hyprland",
         "imv",
         "kitty",
@@ -52,6 +57,7 @@
         "lsd",
         "pavucontrol",
         "powerline",
+        "python",
         "slurp",
         "swayidle",
         "swaylock",
@@ -84,8 +90,12 @@
     "version": "2.5.6",
     "custom-commands": [
         "usermod -aG wheel karasu",
-        "cd /; git clone https://github.com/karasu/thinkbook.git",
+        "sed 's/# %wheel/%wheel/g' /etc/sudoers",
+        "git clone https://github.com/karasu/thinkbook.git /thinkbook",
         "chown -R 1000:1000 /thinkbook",
-        "cd /thinkbook/post/scripts; ./run_all.sh"
+        "/thinkbook/post/yay.sh",
+        "/thinkbook/post/chaotic.sh",
+        "/thinkbook/post/fonts.sh",
+        "/thinkbook/post/omz.sh"
     ]
 }
