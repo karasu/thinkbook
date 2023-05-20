@@ -6,5 +6,5 @@ PACKAGES=`jq '.aur[]' /thinkbook/post/aur.json`
 
 for package in ${PACKAGES[@]}
 do
-  pacman -S --needed --noconfirm $package
+  yay -S --needed --noconfirm $package
 done

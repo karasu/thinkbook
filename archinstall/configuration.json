@@ -93,9 +93,6 @@
         "sed 's/# %wheel/%wheel/g' /etc/sudoers",
         "git clone https://github.com/karasu/thinkbook.git /thinkbook",
         "chown -R 1000:1000 /thinkbook",
-        "/thinkbook/post/yay.sh",
-        "/thinkbook/post/chaotic.sh",
-        "/thinkbook/post/fonts.sh",
-        "/thinkbook/post/omz.sh"
+        "/thinkbook/post/post.sh"
     ]
 }
