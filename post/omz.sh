@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Just in case
+pacman -Sy --noconfirm --needed zsh
+
 echo "Installing OH MY ZSH..."
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
