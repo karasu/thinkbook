@@ -36,6 +36,7 @@
     "packages": [
         "awesome-terminal-fonts",
         "ffmpegthumbnailer",
+        "git",
         "greetd",
         "grim",
         "gst-plugin-pipewire",
