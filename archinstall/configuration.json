@@ -77,7 +77,7 @@
         "zsh-syntax-highlighting"
     ],
     "profile": {
-        "path": "/root/thinkbook-main/archinstall/hyprland.py"
+        "path": "/thinkbook/archinstall/hyprland.py"
     },
     "script": "guided",
     "silent": false,
