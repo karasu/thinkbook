@@ -80,6 +80,9 @@
         "path": "/thinkbook/archinstall/hyprland.py"
     },
     "script": "guided",
+    "services": [
+        "greetd"
+    ],
     "silent": false,
     "swap": true,
     "sway_sys_priv_ctrl": [
