@@ -9,4 +9,6 @@
 /thinkbook/post/aur.sh
 /thinkbook/post/disk.sh
 
+USR=`id -nu 1000`
+passwd $USR
 
