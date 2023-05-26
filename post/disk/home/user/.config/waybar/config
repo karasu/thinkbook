@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 24,
+    "height": 40,
     "modules-left": ["wlr/workspaces", "hyprland/submap", "custom/waybar-mpris"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["backlight", "network", "cpu", "memory", "tray", "pulseaudio", "battery", "clock", "custom/power"],
@@ -36,10 +36,10 @@
         "on-click": "chrome calendar.google.com"
     },
     "cpu": {
-        "format": "cpu: {usage}% "
+        "format": "{usage}% "
     },
     "memory": {
-        "format": "mem: {}% "
+        "format": "{}% "
     },
     "battery": {
         "bat": "BAT1",
@@ -65,7 +65,7 @@
     },
     "pulseaudio": {
         //"scroll-step": 1,
-        "format": "{volume}% {icon}",
+        "format": "{volume}%   {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
         "format-icons": {
@@ -81,7 +81,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent: >3}%",
+        "format": "{percent: >3}% {icon}",
         "format-icons": ["", ""],
         "on-scroll-down": "brightnessctl -c backlight set 1%-",
         "on-scroll-up": "brightnessctl -c backlight set +1%"
