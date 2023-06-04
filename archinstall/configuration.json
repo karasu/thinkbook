@@ -108,7 +108,7 @@
         "zsh-syntax-highlighting"
     ],
     "profile": {
-        "path": "/thinkbook/archinstall/hyprland.py"
+        "path": "hyprland.py"
     },
     "script": "guided",
     "services": [
