@@ -1,5 +1,10 @@
 #!/bin/sh
 
 loadkeys es
-pacman -S --noconfirm --needed python archinstall
-python -m archinstall --config archinstall/configuration.json --creds archinstall/credentials.json --disk_layout archinstall/disk_layout.json
+pacman -S --noconfirm --needed python python-pip git
+pip uninstall archinstall
+git clone https://github.com/archlinux/archinstall /archinstall
+cd /archinstall
+pip install
+cd /thinkbook
+python -m archinstall --config /thinkbook/archinstall/configuration.json --creds /thinkbook/archinstall/credentials.json --disk_layout /thinkbook/archinstall/disk_layout.json
