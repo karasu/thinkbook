@@ -3,7 +3,13 @@
    "gimp-devel",
    "google-chrome",
    "greetd-tuigreet-bin",
-   "nitch"
+   "nitch",
+   "nwg-look-bin",
+   "sddm-git",
+   "swaylock-effects",
+   "swww",
+   "waybar-hyprland",
+   "wlogout"
 ]
 }
 

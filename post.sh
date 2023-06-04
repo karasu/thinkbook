@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Runs all scripts
+# Set user password
 
 USR=`id -nu 1000`
 echo "Enter user $USR password:"
@@ -36,7 +36,7 @@ pacman -Sy --needed --noconfirm awesome-terminal-fonts \
   cantarell-fonts gnu-free-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji \
   noto-fonts-extra ttf-dejavu ttf-font-awesome ttf-ionicons ttf-liberation ttf-opensans \
   ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-sourcecodepro-nerd \
-  ttf-hack powerline-fonts ttc-iosevka
+  ttf-hack powerline-fonts ttc-iosevka ttf-jetbrains-mono-nerd
 
 pacman -Sy --needed --noconfirm siji-ttf
 # ttf-font-icons ttf-unicons
@@ -72,7 +72,7 @@ chown $USR:$USR /home/$USR/.config/starship.toml
 
 pacman -Sy --needed --noconfirm jq
 
-PACKAGES=`jq '.aur[]' /thinkbook/post/aur.json`
+PACKAGES=`jq '.aur[]' /thinkbook/aur.json`
 
 for package in ${PACKAGES[@]}
 do
@@ -82,5 +82,9 @@ done
 ################################################################################
 # Copy dot files
 
-mv /thinkbook/post/disk/home/user /thinkbook/post/disk/home/$USR
-cp -Rnv /thinkbook/post/disk/* /
+mv /thinkbook/disk/home/user /thinkbook/disk/home/$USR
+cp -Rnv /thinkbook/disk/* /
+
+###############################################################################
+# clean conflicting portals
+yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk
