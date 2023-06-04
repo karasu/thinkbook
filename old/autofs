@@ -1,8 +1,0 @@
-#!/bin/sh
-
-  ${PACMAN} autofs
-  cp autofs/auto.master.d/programari.autofs /etc/autofs/auto.master.d
-  echo "programari -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/programari" > /etc/autofs/auto.programari
-  echo "operatius -fstype=cifs,username=${PROGRAMARI_USERNAME},password=${PROGRAMARI_PASSWORD} ://192.168.0.151/operatius" >> /etc/autofs/auto.programari
-  
-  systemctl enable autofs
