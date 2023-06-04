@@ -113,7 +113,7 @@
     "script": "guided",
     "services": [
         "bluetooth",
-        "sddm"
+        "greetd"
     ],
     "silent": false,
     "swap": true,
