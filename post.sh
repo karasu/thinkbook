@@ -84,7 +84,8 @@ done
 
 mv /thinkbook/disk/home/user /thinkbook/disk/home/$USR
 cp -Rnv /thinkbook/disk/* /
+chown -R $USR:$USR /home/$USR
 
 ###############################################################################
 # clean conflicting portals
-yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk
+sudo -u $USR -- yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk
