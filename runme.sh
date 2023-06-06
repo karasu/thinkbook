@@ -14,5 +14,8 @@ if [ "$1" == "sda" ]; then
   sed -i -e 's/nvme0n1/sda/g' archinstall/disk_layout.json
 fi
 
-./install.sh
+# If there is a failed installation /mnt/archinstall needs to be unmounted
 
+umount -R /mnt/archinstall
+
+./install.sh
