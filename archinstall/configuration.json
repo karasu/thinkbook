@@ -126,7 +126,6 @@
         "usermod -aG wheel karasu",
         "sed 's/# %wheel/%wheel/g' /etc/sudoers",
         "git clone https://github.com/karasu/thinkbook.git /thinkbook",
-        "chown -R 1000:1000 /thinkbook",
-        "/thinkbook/post.sh"
+        "chown -R 1000:1000 /thinkbook"
     ]
 }
