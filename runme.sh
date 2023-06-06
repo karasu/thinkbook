@@ -2,10 +2,11 @@
 
 # TESTING ONLY
 #########################################################################
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-echo "Server = http://10.1.1.166:8000\n" > /etc/pacman.d/mirrorlist
-cat /etc/pacman.d/mirrorlist.backup >> /etc/pacman.d/mirrorlist
-rm /etc/pacman.d/mirrorlist.backup
+if [ ! -f "/etc/pacman.d/mirrorlist.backup" ]; then
+    cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+    echo "Server = http://10.1.1.166:8000\n" > /etc/pacman.d/mirrorlist
+    cat /etc/pacman.d/mirrorlist.backup >> /etc/pacman.d/mirrorlist
+fi
 #########################################################################
 
 pacman-key -u
