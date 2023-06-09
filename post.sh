@@ -10,14 +10,14 @@ ask_continue ()
 }
 
 ##################################################################################
-# Shell starts here
+# Script starts here
 
 INSTALL_DIR="/mnt/archinstall"
 
-# Install archi install scripts (just in case)
+# Install arch install scripts (just in case)
 pacman -Sy --needed --noconfirm arch-install-scripts
 
-echo "Will chroot to $INSTALL_DIR"
+echo "We will chroot to $INSTALL_DIR"
 ask_continue
 
 arch-chroot $INSTALL_DIR
@@ -32,7 +32,7 @@ passwd $USR
 
 YAY="/thinkbook/yay"
 
-echo "Now will Install yay using $USR user..."
+echo "Now we will Install yay using $USR user..."
 ask_continue
 pacman -Sy --needed --noconfirm go
 git clone https://aur.archlinux.org/yay.git $YAY
@@ -42,7 +42,7 @@ su -c 'makepkg -f --needed --noconfirm' $USR
 pacman -U --needed --noconfirm yay-*-x86_64.pkg.tar.zst
 
 ###################################################################################
-echo "Now will add chaotic-aur repository to pacman..."
+echo "Now we will add chaotic-aur repository to pacman..."
 ask_continue
 
 pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
@@ -120,5 +120,9 @@ sudo -u $USR -- yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-g
 # enable services
 systemctl enable bluetooth
 systemctl enable greetd
+systemctl enable seatd
 systemctl enable sshd
+
+exit
+
 
