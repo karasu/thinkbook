@@ -117,6 +117,20 @@ chown -R $USR:$USR /home/$USR
 sudo -u $USR -- yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk
 
 ###############################################################################
+# Add user to groups
+gpasswd -a $USR seat
+gpasswd -a $USR video
+gpasswd -a $USR wheel
+
+###############################################################################
+# env vars
+
+echo "LIBSEAT_BACKEND=logind" >> /etc/environment
+echo "HYPRLAND_LOG_WLR=1" >> /etc/environment
+echo "GTK_THEME=Manhattan:dark" >> /etc/environment
+echo "QT_QPA_PLATFORM=wayland" >> /etc/environment
+
+###############################################################################
 # enable services
 systemctl enable bluetooth
 systemctl enable greetd
