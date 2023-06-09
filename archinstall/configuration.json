@@ -45,6 +45,7 @@
         "ffmpegthumbnailer",
         "git",
         "greetd",
+        "greetd-tuigreet",
         "grim",
         "gst-plugin-pipewire",
         "gst-plugins-base",
@@ -69,6 +70,7 @@
         "network-manager-applet",
         "nfs-utils",
         "ntfs-3g",
+        "openssh",
         "pacman-contrib",
         "pavucontrol",
         "polkit-gnome",
@@ -111,7 +113,8 @@
     "script": "guided",
     "services": [
         "bluetooth",
-        "greetd"
+        "greetd",
+        "sshd"
     ],
     "silent": false,
     "swap": true,

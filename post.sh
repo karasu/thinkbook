@@ -1,7 +1,28 @@
 #!/bin/sh
 
-# Set user password
+ask_continue ()
+{
+  echo -n "Would you like to continue? (y/n) "
+  read result
+  if [ "$result" != "y" ]; then
+    exit 0
+  fi
+}
 
+##################################################################################
+# Shell starts here
+
+INSTALL_DIR="/mnt/archinstall"
+
+# Install archi install scripts (just in case)
+pacman -Sy --needed --noconfirm arch-install-scripts
+
+echo "Will chroot to $INSTALL_DIR"
+ask_continue
+
+arch-chroot $INSTALL_DIR
+
+# Set user password
 USR=`id -nu 1000`
 echo "Enter user $USR password:"
 passwd $USR
@@ -11,7 +32,8 @@ passwd $USR
 
 YAY="/thinkbook/yay"
 
-echo "Installing yay using $USR user..."
+echo "Now will Install yay using $USR user..."
+ask_continue
 pacman -Sy --needed --noconfirm go
 git clone https://aur.archlinux.org/yay.git $YAY
 chown -R $USR:$USR $YAY
@@ -20,7 +42,8 @@ su -c 'makepkg -f --needed --noconfirm' $USR
 pacman -U --needed --noconfirm yay-*-x86_64.pkg.tar.zst
 
 ###################################################################################
-echo "Adding chaotic-aur repository to pacman..."
+echo "Now will add chaotic-aur repository to pacman..."
+ask_continue
 
 pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key FBA220DFC880C036
@@ -31,6 +54,8 @@ Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
 
 ###################################################################################
 # Fonts
+echo "Now will install some extra fonts..."
+ask_continue
 
 pacman -Sy --needed --noconfirm awesome-terminal-fonts \
   cantarell-fonts gnu-free-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji \
@@ -44,6 +69,7 @@ pacman -Sy --needed --noconfirm siji-ttf
 ##################################################################################
 # Installs zsh, omyzsh and starship
 
+echo "Will install zsh, 
 pacman -Sy --noconfirm --needed zsh starship
 
 echo "Installing OH MY ZSH..."
@@ -55,10 +81,10 @@ wget -O /tmp/omzsh-install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/
 chmod +x /tmp/omzsh-install.sh
 
 # Install for root
-/tmp/omzsh-install.sh
+RUNZSH=no sh /tmp/omzsh-install.sh
 
 # Install for user 1000
-sudo -u $USR /tmp/omzsh-install.sh
+sudo -u $USR RUNZSH=no sh /tmp/omzsh-install.sh
 
 # Install starship cross-shell
 sudo pacman -Sy --noconfirm --needed starship
@@ -89,3 +115,10 @@ chown -R $USR:$USR /home/$USR
 ###############################################################################
 # clean conflicting portals
 sudo -u $USR -- yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk
+
+###############################################################################
+# enable services
+systemctl enable bluetooth
+systemctl enable greetd
+systemctl enable sshd
+
