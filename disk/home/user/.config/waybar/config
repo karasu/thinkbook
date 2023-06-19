@@ -1,7 +1,11 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 40,
+    "height": 42,
+    "spacing": 2,
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
     "modules-left": ["wlr/workspaces", "hyprland/submap", "custom/waybar-mpris"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["backlight", "network", "cpu", "memory", "tray", "pulseaudio", "battery", "clock", "custom/power"],
@@ -18,7 +22,6 @@
             "3": "",
             "4": "",
             "5": "",
-            "6": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -120,5 +123,18 @@
      // "on-scroll-up": "waybar-mpris --send next",
      // "on-scroll-down": "waybar-mpris --send prev",
      "escape": "true"
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": ["", "", ""]
+  },
+  "user": {
+        "format": "{user} (up {work_d} days ↑)",
+        "interval": 60,
+        "height": 30,
+        "width": 30,
+        "icon": true,
   }
 }
